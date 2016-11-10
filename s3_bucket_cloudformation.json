@@ -2,14 +2,21 @@
   "AWSTemplateFormatVersion" : "2010-09-09",
 
   "Description" : "AWS CloudFormation Template to create a static S3 website configuration.",
-
+"Parameters": {
+  "BucketName" {
+    "Description" : "Enter a valid bucket name",
+    "Type": "String",
+    "MinLength": "5",
+    "MaxLength": "20"
+  }
+},
 
   "Resources" : {
     "S3Bucket" : {
       "Type" : "AWS::S3::Bucket",
       "Properties" : {
         "AccessControl" : "PublicRead",
-        "BucketName": { "Ref" : "unique-bucket-24321" },
+        "BucketName": { "Ref" : "BucketName" },
         "WebsiteConfiguration" : {
            "IndexDocument" : "index.html",
            "ErrorDocument" : "error.html"
