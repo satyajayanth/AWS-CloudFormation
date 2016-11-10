@@ -24,3 +24,18 @@
       }
     }
   },
+  
+  "Outputs" : {
+      "WebsiteURL" : {
+        "Value" : { "Fn::GetAtt" : [ "S3Bucket", "WebsiteURL" ] },
+        "Description" : "The URL of the newly created website"
+      },
+      "S3BucketSecureURL": {
+        "Value" : { "Fn::Join" : [ "",
+            [ "https://", { "Fn::GetAtt" : [ "S3Bucket", "DomainName" ] } ]
+          ]
+        },
+        "Description" : "S3 bucket secure URL"
+      }
+    }
+  }
