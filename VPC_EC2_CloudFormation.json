@@ -1,3 +1,17 @@
 {
 "AWSTemplateFormatVersion": "2010-09-09",
 "Description": "Building a VPC from scratch with cloudformation",
+
+"Resources" : {
+"VPC" : {
+"Type" : "AWS::EC2::VPC",
+"Properties" : {
+"EnableDnsSupport" : "true",
+"EnableDnsHostnames" : "true",
+"CidrBlock" : "10.0.0.0/16",
+"Tags" : [
+{ "Key" : "Application", "Value" : { "Ref" : "AWS::StackName" } },
+{ "Key" : "Network", "Value" : "Public" }
+]
+}
+},
