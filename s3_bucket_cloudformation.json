@@ -11,8 +11,8 @@
         "AccessControl" : "PublicRead",
         "BucketName": { "Ref" : "unique-bucket-24321" },
         "WebsiteConfiguration" : {
-           "IndexDocument" : "",
-           "ErrorDocument" : ""
+           "IndexDocument" : "index.html",
+           "ErrorDocument" : "error.html"
         }
       }
     }
