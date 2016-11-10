@@ -3,7 +3,7 @@
 
   "Description" : "AWS CloudFormation Template to create a static S3 website configuration.",
 "Parameters": {
-  "BucketName" {
+  "BucketName" :{
     "Description" : "Enter a valid bucket name",
     "Type": "String",
     "MinLength": "5",
