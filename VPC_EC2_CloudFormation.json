@@ -15,3 +15,27 @@
 ]
 }
 },
+  
+"PublicSubnet" : {
+"Type" : "AWS::EC2::Subnet",
+"Properties" : {
+"VpcId" : { "Ref" : "VPC" },
+"CidrBlock" : "10.0.0.0/24",
+"Tags" : [
+{ "Key" : "Application", "Value" : { "Ref" : "AWS::StackName" } },
+{ "Key" : "Network", "Value" : "Public" }
+]
+}
+},
+
+"InternetGateway" : {
+"Type" : "AWS::EC2::InternetGateway"   
+},
+
+"GatewayToInternet" : {
+"Type" : "AWS::EC2::VPCGatewayAttachment",
+"Properties" : {
+"VpcId" : { "Ref" : "VPC" },
+"InternetGatewayId" : { "Ref" : "InternetGateway" }
+}
+},
