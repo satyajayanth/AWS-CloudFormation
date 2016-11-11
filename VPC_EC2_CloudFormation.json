@@ -39,7 +39,24 @@
 "InternetGatewayId" : { "Ref" : "InternetGateway" }
 }
 },
+
   
+"PublicInstance" : {
+"Type" : "AWS::EC2::Instance",
+"DependsOn" : "GatewayToInternet",
+ "Properties" : {
+"InstanceType" : "t1.micro",
+"ImageId"  : "ami-fb8e9292",
+"NetworkInterfaces" : [{
+"AssociatePublicIpAddress" : "true",
+ "DeviceIndex"              : "0",
+"DeleteOnTermination"      : "true",
+ "SubnetId"                 : { "Ref" : "PublicSubnet" }
+}]
+}
+      }
+}
+}
 "PublicRouteTable" : {
 "Type" : "AWS::EC2::RouteTable",
 "Properties" : {
